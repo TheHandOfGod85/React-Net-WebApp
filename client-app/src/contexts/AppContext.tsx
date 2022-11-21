@@ -9,13 +9,20 @@ import React, {
 } from "react";
 import { Activity } from "../app/models/activity";
 
+type MainContextData = {
+  activities: Activity[];
+  selectedActivity: Activity | undefined;
+  handleSelectActivity: (id: string) => void;
+  handleCancelSelectActivity: () => void;
+};
+
 type Props = {
   children: ReactNode;
 };
 
 interface Properties {}
 
-export const AppContext = createContext<any>({});
+export const AppContext = createContext({} as MainContextData);
 
 export const AppContextProvider = ({ children }: Props) => {
   const [activities, setActivities] = useState<Activity[]>([]);

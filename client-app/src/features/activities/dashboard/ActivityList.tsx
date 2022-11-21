@@ -3,7 +3,7 @@ import { Button, Item, Label, Segment } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
 import AppContext from "../../../contexts/AppContext";
 
-const { activities, selectActivity } = useContext(AppContext);
+const { activities, handleSelectActivity } = useContext(AppContext);
 
 export default function ActivityList() {
   return (
@@ -22,7 +22,7 @@ export default function ActivityList() {
               </Item.Description>
               <Item.Extra>
                 <Button
-                  onClick={() => selectActivity(activity.id)}
+                  onClick={() => handleSelectActivity(activity.id)}
                   floated="right"
                   content="View"
                   color="blue"

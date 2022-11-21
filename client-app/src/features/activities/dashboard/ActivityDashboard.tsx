@@ -5,7 +5,7 @@ import ActivityDetails from "../details/ActivityDetails";
 import ActivityForm from "../form/ActivityForm";
 import AppContext from "../../../contexts/AppContext";
 
-const { selectActivity } = useContext(AppContext);
+const { selectedActivity } = useContext(AppContext);
 
 export default function ActivityDashboard() {
   return (
@@ -14,7 +14,7 @@ export default function ActivityDashboard() {
         <ActivityList />
       </Grid.Column>
       <Grid.Column width="6">
-        {selectActivity && <ActivityDetails />}
+        {selectedActivity && <ActivityDetails />}
         <ActivityForm />
       </Grid.Column>
     </Grid>
