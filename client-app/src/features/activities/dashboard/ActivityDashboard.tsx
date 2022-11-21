@@ -14,7 +14,7 @@ export default function ActivityDashboard() {
         <ActivityList />
       </Grid.Column>
       <Grid.Column width="6">
-        {selectedActivity && <ActivityDetails />}
+        {selectedActivity! && <ActivityDetails />}
         <ActivityForm />
       </Grid.Column>
     </Grid>

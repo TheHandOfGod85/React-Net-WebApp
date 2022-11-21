@@ -7,13 +7,13 @@ const { selectedActivity, handleCancelSelectActivity } = useContext(AppContext);
 export default function ActivityDetails() {
   return (
     <Card fluid>
-      <Image src={`/assets/categoryImages/${selectedActivity?.category}.jpg`} />
+      <Image src={`/assets/categoryImages/${selectedActivity!.category}.jpg`} />
       <Card.Content>
-        <Card.Header>{selectedActivity?.title}</Card.Header>
+        <Card.Header>{selectedActivity!.title}</Card.Header>
         <Card.Meta>
-          <span>{selectedActivity?.date.toString()}</span>
+          <span>{selectedActivity!.date.toString()}</span>
         </Card.Meta>
-        <Card.Description>{selectedActivity?.description}</Card.Description>
+        <Card.Description>{selectedActivity!.description}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <Button.Group widths="2">
