@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Item, Label, Segment } from "semantic-ui-react";
 import { Activity } from "../../../app/models/activity";
+import AppContext from "../../../contexts/AppContext";
 
-interface Props {
-  activities: Activity[];
-  selectActivity: (id: string) => void;
-}
+const { activities, selectActivity } = useContext(AppContext);
 
-export default function ActivityList({ activities, selectActivity }: Props) {
+export default function ActivityList() {
   return (
     <Segment>
       <Item.Group divided>
-        {activities.map(activity => (
+        {activities.map((activity: Activity) => (
           <Item key={activity.id}>
             <Item.Content>
               <Item.Header as="a">{activity.title}</Item.Header>

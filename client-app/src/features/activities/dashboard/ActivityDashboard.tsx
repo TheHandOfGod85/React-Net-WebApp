@@ -1,35 +1,20 @@
-import React from "react";
-import { Grid, List } from "semantic-ui-react";
-import { Activity } from "../../../app/models/activity";
+import React, { useContext } from "react";
+import { Grid } from "semantic-ui-react";
 import ActivityList from "./ActivityList";
 import ActivityDetails from "../details/ActivityDetails";
 import ActivityForm from "../form/ActivityForm";
+import AppContext from "../../../contexts/AppContext";
 
-interface Props {
-  activities: Activity[];
-  selectedActivity: Activity | undefined;
-  selectActivity: (id: string) => void;
-  cancelSelectActivity: () => void;
-}
+const { selectActivity } = useContext(AppContext);
 
-export default function ActivityDashboard({
-  activities,
-  selectActivity,
-  selectedActivity,
-  cancelSelectActivity
-}: Props) {
+export default function ActivityDashboard() {
   return (
     <Grid>
       <Grid.Column width="10">
-        <ActivityList activities={activities} selectActivity={selectActivity} />
+        <ActivityList />
       </Grid.Column>
       <Grid.Column width="6">
-        {selectedActivity && (
-          <ActivityDetails
-            activity={selectedActivity}
-            cancelSelectActivity={cancelSelectActivity}
-          />
-        )}
+        {selectActivity && <ActivityDetails />}
         <ActivityForm />
       </Grid.Column>
     </Grid>

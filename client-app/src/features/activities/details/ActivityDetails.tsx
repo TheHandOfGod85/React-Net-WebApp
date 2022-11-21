@@ -1,16 +1,10 @@
-import React from "react";
-import { Button, Card, Icon, Image } from "semantic-ui-react";
-import { Activity } from "../../../app/models/activity";
+import React, { useContext } from "react";
+import { Button, Card, Image } from "semantic-ui-react";
+import AppContext from "../../../contexts/AppContext";
 
-interface Props {
-  activity: Activity;
-  cancelSelectActivity: () => void;
-}
+const { activity, cancelSelectActivity } = useContext(AppContext);
 
-export default function ActivityDetails({
-  activity,
-  cancelSelectActivity
-}: Props) {
+export default function ActivityDetails() {
   return (
     <Card fluid>
       <Image src={`/assets/categoryImages/${activity.category}.jpg`} />
