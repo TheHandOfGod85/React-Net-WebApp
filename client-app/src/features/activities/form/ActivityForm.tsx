@@ -11,7 +11,7 @@ interface Props {
 export default function ActivityForm({
   closeForm,
   activity: selectedActivity,
-  createOrEdit
+  createOrEdit,
 }: Props) {
   const initialState = selectedActivity ?? {
     id: "",
@@ -20,7 +20,7 @@ export default function ActivityForm({
     description: "",
     date: "",
     city: "",
-    venue: ""
+    venue: "",
   };
   const [activity, setActivity] = useState(initialState);
 
@@ -46,7 +46,7 @@ export default function ActivityForm({
         />
         <Form.TextArea
           placeholder="Description"
-          value={activity.description}
+          defaultValue={activity.description}
           name="Description"
           onChange={handleInputChange}
         />
